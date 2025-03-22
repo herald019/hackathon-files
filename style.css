@@ -1,0 +1,78 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Heading */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Drop Area */
+#drop-area {
+    border: 2px dashed #007bff;
+    background-color: #fff;
+    padding: 30px;
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+    border-radius: 10px;
+    position: relative;
+}
+
+#drop-area:hover {
+    background-color: #e9f5ff;
+}
+
+#drop-area.dragover {
+    border-color: #0056b3;
+    background-color: #d4edff;
+}
+
+/* File Info */
+#file-info {
+    display: none;
+    margin-top: 15px;
+}
+
+#file-info i {
+    font-size: 40px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+#file-info p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Hidden File Input */
+#fileInput {
+    display: none;
+}
+
+/* Upload Button */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

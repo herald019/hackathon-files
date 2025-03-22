@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSV Upload</title>
+        <link rel="stylesheet" href="style.css">  <!-- Link the CSS file -->
+    </head>    
+<body>
+    <h2>Upload CSV File</h2>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div id="drop-area">
+            <p>Drag & Drop CSV file here or click to select</p>
+            <input type="file" id="fileInput" name="csvFile" accept=".csv" required>
+        </div>
+        <button type="submit">Upload</button>
+    </form>
+    <script>
+        const dropArea = document.getElementById("drop-area");
+        const fileInput = document.getElementById("fileInput");
+        const fileInfo = document.createElement("div");
+        fileInfo.id = "file-info";
+        dropArea.appendChild(fileInfo);
+    
+        dropArea.addEventListener("click", () => fileInput.click());
+    
+        dropArea.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropArea.classList.add("dragover");
+        });
+    
+        dropArea.addEventListener("dragleave", () => {
+            dropArea.classList.remove("dragover");
+        });
+    
+        dropArea.addEventListener("drop", (e) => {
+            e.preventDefault();
+            dropArea.classList.remove("dragover");
+    
+            if (e.dataTransfer.files.length > 0) {
+                fileInput.files = e.dataTransfer.files;
+                showFileInfo(e.dataTransfer.files[0]);
+            }
+        });
+    
+        fileInput.addEventListener("change", () => {
+            if (fileInput.files.length > 0) {
+                showFileInfo(fileInput.files[0]);
+            }
+        });
+    
+        function showFileInfo(file) {
+            if (file) {
+                fileInfo.innerHTML = `
+                    <i class="fas fa-file-csv"></i>
+                    <p>${file.name}</p>
+                `;
+                fileInfo.style.display = "block";
+            }
+        }
+    </script>
+    
+</body>
+</html>
